@@ -47,7 +47,6 @@ public class CacheStorage {
         Random generator = new Random();
         int randomIndex = generator.nextInt(storageSize - 1);
         String candidate = (String) this.data.keySet().toArray()[randomIndex];
-        System.out.println(candidate);
         this.remove(candidate);
     }
 
@@ -65,6 +64,10 @@ public class CacheStorage {
         if (this.SyncFile) {
             this.syncDataToFile();
         }
+    }
+
+    public String[] getKeys(){
+        return this.data.keySet().toArray(new String[0]);
     }
 
     public String toString() {

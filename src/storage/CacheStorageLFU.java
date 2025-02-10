@@ -20,6 +20,7 @@ public class CacheStorageLFU extends CacheStorage {
     @Override
     public String get(String key) {
         String result = super.data.get(key);
+
         if (result != null) {
             this.counters.put(key, this.counters.get(key) + 1);
         }
@@ -51,6 +52,7 @@ public class CacheStorageLFU extends CacheStorage {
                 minValue = this.counters.get(newCandidateKey);
             }
         }
+        System.out.println(candidate);
         this.remove(candidate);
     }
 
